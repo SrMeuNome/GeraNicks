@@ -1,17 +1,98 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './bootstrap.css'
+import './index.css'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//O container-fluid é para cobrir toda a pagina
+//O bg-dark é também elemento bootstrap para alteração da cor do funco para preto
+//pt-5 e my-5 é para almento da borda de distancia da tela do container
+//text-white serve para deixar todo o texto branco
+
+function Cabecalho(prop)
+{
+  return(
+    <div className = 'container-fluid bg-dark text-white'>
+        <h1>Gera Nicks</h1>
+    </div>
+  )
+}
+
+function ObjetosNicks(prop)
+{
+  return(
+    <div className = 'obj-nicks'>
+      <div className = 'texto'>{prop.text}</div>
+      <div>
+        <button className = 'botao-copiar'><image href = './img/copy-icon.png' width></image></button>
+      </div>
+    </div>
+  )
+}
+
+function Corpo(prop)
+{
+  return(
+    <div className = 'container-fluid bg-dark text-white corpo'>
+      <div className = 'area-nicks'>
+        <ObjetosNicks text = 'Um texto bem grande' />
+        <ObjetosNicks text = 'teste 2' />
+        <ObjetosNicks text = 'teste 3' />
+        <ObjetosNicks text = 'teste 4' />
+        <ObjetosNicks text = 'teste 5' />
+        <ObjetosNicks text = 'teste 6' />
+        <ObjetosNicks text = 'teste 7' />
+        <ObjetosNicks text = 'teste 8' />
+        <ObjetosNicks text = 'teste 9' />
+        <ObjetosNicks text = 'teste 10' />
+        <ObjetosNicks text = 'teste 11' />
+        <ObjetosNicks text = 'teste 12' />
+        <ObjetosNicks text = 'teste 13' />
+        <ObjetosNicks text = 'teste 14' />
+        <ObjetosNicks text = 'teste 15' />
+        <ObjetosNicks text = 'teste 16' />
+        <ObjetosNicks text = 'Um texto bem grande' />
+        <ObjetosNicks text = 'teste 2' />
+        <ObjetosNicks text = 'teste 3' />
+        <ObjetosNicks text = 'teste 4' />
+        <ObjetosNicks text = 'teste 5' />
+        <ObjetosNicks text = 'teste 6' />
+        <ObjetosNicks text = 'teste 7' />
+        <ObjetosNicks text = 'teste 8' />
+        <ObjetosNicks text = 'teste 9' />
+        <ObjetosNicks text = 'teste 10' />
+        <ObjetosNicks text = 'teste 11' />
+        <ObjetosNicks text = 'teste 12' />
+        <ObjetosNicks text = 'teste 13' />
+        <ObjetosNicks text = 'teste 14' />
+        <ObjetosNicks text = 'teste 15' />
+        <ObjetosNicks text = 'teste 16' />
+      </div>
+    </div>
+  )
+}
+
+function Rodape(prop)
+{
+  return(
+    <div className = 'container-fluid bg-dark text-white pt-3'>
+      <h5>Esté é o rodapé</h5>
+    </div>
+  )
+}
+
+
+class Main extends React.Component
+{
+  render(){
+    return(
+      <div className = 'container-fluid'>
+        <Cabecalho />
+        <Corpo />
+        <Rodape />
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<Main />, document.getElementById('root'))
