@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b4c74e7010bdef83bcbe05445c127336",
+    "revision": "9805a5201676f2599eec7c26dece3825",
     "url": "/GeraNicks/index.html"
   },
   {
-    "revision": "53bf1c3146fadfdc7efa",
-    "url": "/GeraNicks/static/css/main.12982db7.chunk.css"
+    "revision": "5f85c5e497d90ceeb7d1",
+    "url": "/GeraNicks/static/css/main.d5f5a1f9.chunk.css"
   },
   {
-    "revision": "38c5f468e7537d31709a",
-    "url": "/GeraNicks/static/js/2.d6b51aa7.chunk.js"
+    "revision": "7c3502e2907b786000f7",
+    "url": "/GeraNicks/static/js/2.524cd419.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/GeraNicks/static/js/2.d6b51aa7.chunk.js.LICENSE.txt"
+    "url": "/GeraNicks/static/js/2.524cd419.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "53bf1c3146fadfdc7efa",
-    "url": "/GeraNicks/static/js/main.2c02b36d.chunk.js"
+    "revision": "5f85c5e497d90ceeb7d1",
+    "url": "/GeraNicks/static/js/main.3e1fce60.chunk.js"
   },
   {
     "revision": "31da79f8709b998026fb",
