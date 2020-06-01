@@ -14,35 +14,32 @@ body
     align-items: center;
 }
 
-.area-nicks
+div .texto
 {
-    width: 80%;
-    height: 80%;
-    margin-top: 8%;
-    background-color: #000;
-    border-color: #55aaff;
-    border-width: 5px;
-    border-style: solid;
-    opacity: 1;
-    color: black;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    float: left;
+    width: 50%;
+    height: 100%;
 }
 
-.texto
+div .botao-copiar
 {
-    text-align: left;
-    padding: 10%;
+    display: flex;
+    width: 50%;
+    flex-direction: row-reverse;
+    padding: 2%;
 }
 
-.botao-copiar
+button .botao-copiar
 {
-    text-align: right;
-    padding: 10%;
+    width: 30%;
+}
+
+.img-copy
+{
+    width: 100%;
 }
 
 /*Tamanho classes para despositivos grandes*/
@@ -50,12 +47,12 @@ body
 {
     .obj-nicks
     {
-        width: 20%;
-        height: 20%;
+        width: 200px;
+        height: 70px;
         background-color: #555;
         border-color: white;
         border-style: solid;
-        border-radius: 5%;
+        border-radius: 5px;
         color: white;
         display: flex;
         justify-content: center;
@@ -64,6 +61,25 @@ body
         text-align: center;
         font-size: 18px;
     }
+
+    .area-nicks
+    {
+        width: 1500px;
+        height: 400px;
+        margin-top: 50px;
+        background-color: #000;
+        border-color: #55aaff;
+        border-width: 5px;
+        border-style: solid;
+        opacity: 1;
+        color: black;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+    }
 }
 
 /*Tamanho classes para despositivos pequenos*/
@@ -71,18 +87,37 @@ body
 {
     .obj-nicks
     {
-        width: 20%;
-        height: 20%;
+        width: 100px;
+        height: 50px;
         background-color: #555;
         border-color: white;
         border-style: solid;
-        border-radius: 5%;
+        border-radius: 5px;
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 5px;
         text-align: center;
-        font-size: 12px;
+        font-size: 10px;
+    }
+
+    .area-nicks
+    {
+        width: 500px;
+        height: 350px;
+        margin-top: 10px;
+        background-color: #000;
+        border-color: #55aaff;
+        border-width: 5px;
+        border-style: solid;
+        opacity: 1;
+        color: black;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
     }
 }

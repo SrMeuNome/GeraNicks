@@ -2,12 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './bootstrap.css'
 import './index.css'
+import imagemCopy from './img/copy-icon.png'
 
 
 //O container-fluid é para cobrir toda a pagina
 //O bg-dark é também elemento bootstrap para alteração da cor do funco para preto
 //pt-5 e my-5 é para almento da borda de distancia da tela do container
 //text-white serve para deixar todo o texto branco
+//antes de publicar fazer um 'npm run deploy'
 
 function Cabecalho(prop)
 {
@@ -23,9 +25,7 @@ function ObjetosNicks(prop)
   return(
     <div className = 'obj-nicks'>
       <div className = 'texto'>{prop.text}</div>
-      <div>
-        <button className = 'botao-copiar'><image href = './img/copy-icon.png' width></image></button>
-      </div>
+      <div className = 'botao-copiar'><button className = 'btn btn-primary botao-copiar'><img src = {imagemCopy} alt = '' className = 'img-copy' /></button></div>
     </div>
   )
 }
