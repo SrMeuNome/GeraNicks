@@ -30,44 +30,37 @@ function ObjetosNicks(prop)
   )
 }
 
+//Responsavel por gerar a quantidade desejada de objetos de nicks
+function CriarObjetos(prop)
+{
+  let quantidade = prop.qtd
+  let list = []
+  for (let i = 0; i < quantidade; i++)
+  {
+    let text = 'Text ' + (i + 1)
+    list.push(<ObjetosNicks text = {text} />)
+  }
+  return(list)
+}
+
 function Corpo(prop)
 {
   return(
     <div className = 'container-fluid bg-dark text-white corpo'>
-      <div className = 'area-nicks'>
-        <ObjetosNicks text = 'Um texto bem grande' />
-        <ObjetosNicks text = 'teste 2' />
-        <ObjetosNicks text = 'teste 3' />
-        <ObjetosNicks text = 'teste 4' />
-        <ObjetosNicks text = 'teste 5' />
-        <ObjetosNicks text = 'teste 6' />
-        <ObjetosNicks text = 'teste 7' />
-        <ObjetosNicks text = 'teste 8' />
-        <ObjetosNicks text = 'teste 9' />
-        <ObjetosNicks text = 'teste 10' />
-        <ObjetosNicks text = 'teste 11' />
-        <ObjetosNicks text = 'teste 12' />
-        <ObjetosNicks text = 'teste 13' />
-        <ObjetosNicks text = 'teste 14' />
-        <ObjetosNicks text = 'teste 15' />
-        <ObjetosNicks text = 'teste 16' />
-        <ObjetosNicks text = 'Um texto bem grande' />
-        <ObjetosNicks text = 'teste 2' />
-        <ObjetosNicks text = 'teste 3' />
-        <ObjetosNicks text = 'teste 4' />
-        <ObjetosNicks text = 'teste 5' />
-        <ObjetosNicks text = 'teste 6' />
-        <ObjetosNicks text = 'teste 7' />
-        <ObjetosNicks text = 'teste 8' />
-        <ObjetosNicks text = 'teste 9' />
-        <ObjetosNicks text = 'teste 10' />
-        <ObjetosNicks text = 'teste 11' />
-        <ObjetosNicks text = 'teste 12' />
-        <ObjetosNicks text = 'teste 13' />
-        <ObjetosNicks text = 'teste 14' />
-        <ObjetosNicks text = 'teste 15' />
-        <ObjetosNicks text = 'teste 16' />
+      <div className = 'area-input'>
+        <input name = 'quantidade' type = 'text' className = 'form-control' id = 'input-qtd' placeholder = 'Quantidade de Nicks' />
+        <span className = 'espaco'></span>
+        <button className = 'btn btn-primary' type = 'button' onClick = {function (){
+            const qtd = document.getElementById('input-qtd').value
+            ReactDOM.render(<CriarObjetos qtd = {qtd}/>, document.getElementById('nicks'))
+          }
+        }
+        >Gerar</button>
       </div>
+
+      <div className = 'area-nicks' id = 'nicks'>
+      </div>
+      
     </div>
   )
 }
