@@ -30,6 +30,35 @@ function ObjetosNicks(prop)
   )
 }
 
+//Função que cria e retorna strings de nicks
+function GerarNick()
+{
+  let tamanhoMaximo = 15 //Pode ser alterado o tamanho máximo dos nicks
+  let finalNick = '/'
+  let resultado = ''
+  let characteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 -_/'
+  let quantidadeCharacteres = characteres.length
+  for (let i = 0; i < tamanhoMaximo; i++)
+  {
+    //charAt retorna o charactare que eseta em uma index expecifico da string
+    //floor é uma função que transforma números "quebrados" em inteiros
+    //O Math.random() em JS retorna números em um intervalo de 0 e 1
+    //a formula para random retornar números em um intervalo é "Math.random() * (max - min) + min"
+    //O caractere de '/' foi escolhido para ser o fim de um nick
+    let auxCharactere = characteres.charAt(Math.floor(Math.random() * (quantidadeCharacteres - 0) + 0))
+    if(auxCharactere !== finalNick)
+    {
+      resultado += auxCharactere
+    }
+    else
+    {
+      break
+    }
+  }
+
+  return resultado
+}
+
 //Responsavel por gerar a quantidade desejada de objetos de nicks
 function CriarObjetos(prop)
 {
@@ -37,7 +66,7 @@ function CriarObjetos(prop)
   let list = []
   for (let i = 0; i < quantidade; i++)
   {
-    let text = 'Text ' + (i + 1)
+    let text = GerarNick()
     list.push(<ObjetosNicks text = {text} />)
   }
   return(list)
