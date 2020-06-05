@@ -24,8 +24,35 @@ function ObjetosNicks(prop)
 {
   return(
     <div className = 'obj-nicks'>
-      <div className = 'texto'>{prop.text}</div>
-      <div className = 'botao-copiar'><button className = 'btn btn-primary botao-copiar'><img src = {imagemCopy} alt = '' className = 'img-copy' /></button></div>
+      <div className = 'texto' id = {prop.id}>{prop.text}</div>
+      <div className = 'botao-copiar'><button className = 'btn btn-primary botao-copiar' onClick = {function () {
+        var auxText = prop.text
+        
+        var divText = document.getElementById(prop.id)
+
+        //O objeto range é que determina o inicio e o fim da seleção
+        var range = document.createRange()
+        //A função selectNode seleciona determinada tag
+        range.selectNode(divText)
+        //Remover todas as seleções que tiver no computador para não dar erro
+        window.getSelection().removeAllRanges()
+        //Fazer a seleção sentro do espaço range pego anteriormente
+        window.getSelection().addRange(range)
+        //Comando para executar a Copia para o clipboard no sistema operacional
+        document.execCommand('copy')
+        //Limpando a seleção novamente
+        window.getSelection().removeAllRanges()
+        
+        //Aviso de item copiado
+        divText.innerHTML = 'Copiado'
+
+        setTimeout(function ()
+        {
+          divText.innerHTML = auxText
+        }, 300)
+        
+      }}
+      ><img src = {imagemCopy} alt = '' className = 'img-copy' /></button></div>
     </div>
   )
 }
@@ -46,12 +73,22 @@ function GerarNick()
     //a formula para random retornar números em um intervalo é "Math.random() * (max - min) + min"
     //O caractere de '/' foi escolhido para ser o fim de um nick
     let auxCharactere = characteres.charAt(Math.floor(Math.random() * (quantidadeCharacteres - 0) + 0))
+    
+    if(auxCharactere.length < 3 && (auxCharactere === '-' || auxCharactere === '_' || auxCharactere === ' '))
+    {
+      continue
+    }
+
     if(auxCharactere !== finalNick)
     {
       resultado += auxCharactere
     }
     else
     {
+      if (resultado.length < 3)
+      {
+        continue
+      }
       break
     }
   }
@@ -67,7 +104,7 @@ function CriarObjetos(prop)
   for (let i = 0; i < quantidade; i++)
   {
     let text = GerarNick()
-    list.push(<ObjetosNicks text = {text} />)
+    list.push(<ObjetosNicks text = {text} id = {i} />)
   }
   return(list)
 }
