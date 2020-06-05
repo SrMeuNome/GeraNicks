@@ -22,16 +22,18 @@ function Cabecalho(prop)
 
 function ObjetosNicks(prop)
 {
+  //Variavel de controle para as copias
+  var copiado = false
   return(
     <div className = 'obj-nicks'>
       <div className = 'texto' id = {prop.id}>{prop.text}</div>
       <div className = 'botao-copiar'><button className = 'btn btn-primary botao-copiar' onClick = {function () {
-        var auxText = prop.text
+        let auxText = prop.text
         
-        var divText = document.getElementById(prop.id)
+        let divText = document.getElementById(prop.id)
 
         //O objeto range é que determina o inicio e o fim da seleção
-        var range = document.createRange()
+        let range = document.createRange()
         //A função selectNode seleciona determinada tag
         range.selectNode(divText)
         //Remover todas as seleções que tiver no computador para não dar erro
@@ -39,16 +41,21 @@ function ObjetosNicks(prop)
         //Fazer a seleção sentro do espaço range pego anteriormente
         window.getSelection().addRange(range)
         //Comando para executar a Copia para o clipboard no sistema operacional
-        document.execCommand('copy')
+        if (!copiado)
+        {
+          document.execCommand('copy')
+        }
         //Limpando a seleção novamente
         window.getSelection().removeAllRanges()
         
         //Aviso de item copiado
         divText.innerHTML = 'Copiado'
+        copiado = true
 
         setTimeout(function ()
         {
           divText.innerHTML = auxText
+          copiado = false
         }, 300)
         
       }}
