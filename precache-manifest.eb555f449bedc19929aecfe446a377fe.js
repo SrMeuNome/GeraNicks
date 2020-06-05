@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "847b23758b9b9e9edb80667b6b73f1cb",
+    "revision": "3cea597575167894d044c92c00c227b9",
     "url": "/GeraNicks/index.html"
   },
   {
-    "revision": "bc0f9342891ba2a09164",
+    "revision": "e75d0c9fd5505c026b06",
     "url": "/GeraNicks/static/css/main.766f7ea9.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/GeraNicks/static/js/2.451853ad.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bc0f9342891ba2a09164",
-    "url": "/GeraNicks/static/js/main.aeaaf2dc.chunk.js"
+    "revision": "e75d0c9fd5505c026b06",
+    "url": "/GeraNicks/static/js/main.019b60a9.chunk.js"
   },
   {
     "revision": "31da79f8709b998026fb",
