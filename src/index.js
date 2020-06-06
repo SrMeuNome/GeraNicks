@@ -108,6 +108,7 @@ function GerarNick()
     //O caractere de '/' foi escolhido para ser o fim de um nick
     let auxCharactere = characteres.charAt(Math.floor(Math.random() * (quantidadeCharacteres - 0) + 0))
     
+    //Verificação para não ser gerado somente caracteres especiais
     if(auxCharactere.length < 3 && (auxCharactere === '-' || auxCharactere === '_' || auxCharactere === ' '))
     {
       continue
