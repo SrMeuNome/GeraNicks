@@ -68,12 +68,39 @@ function ObjetosNicks(prop)
 function GerarNick()
 {
   let tamanhoMaximo = 15 //Pode ser alterado o tamanho máximo dos nicks
+  
+  let characteresVogais = 'AEIOUaeiou -_/'
+  let characteresConsoantes = 'BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz'
+  let characteresEspeciais = ' -_/'
+  let numerais = '1234567890'
+  let characteres = ''
+
   let finalNick = '/'
-  let resultado = ''
-  let characteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 -_/'
-  let quantidadeCharacteres = characteres.length
+
+  let resultado = '' //O nick final
+
+  let quantidadeCharacteres
+
   for (let i = 0; i < tamanhoMaximo; i++)
   {
+    //dicidir qual grupo de caracter tendo 40% de vogal e consoante, 10% especiais e numerais
+    let sortarValorCharactere = (Math.floor(Math.random() * 9))
+    if (sortarValorCharactere <= 3)
+    {
+      characteres = characteresConsoantes
+    } else if (sortarValorCharactere <= 7)
+    {
+      characteres = characteresVogais
+    } else if (sortarValorCharactere <= 8)
+    {
+      characteres = characteresEspeciais
+    } else
+    {
+      characteres = numerais
+    }
+
+    quantidadeCharacteres = characteres.length
+
     //charAt retorna o charactare que eseta em uma index expecifico da string
     //floor é uma função que transforma números "quebrados" em inteiros
     //O Math.random() em JS retorna números em um intervalo de 0 e 1
