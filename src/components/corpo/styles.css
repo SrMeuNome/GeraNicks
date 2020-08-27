@@ -1,0 +1,18 @@
+.button {
+    background-color: seagreen;
+    border-color: #28794b;
+    border-radius: 8px;
+    border-style: none;
+    color: white;
+    width: 80px;
+}
+
+.button:hover {
+    background-color: #28794b;
+    border-color: seagreen;
+    transition-duration: 0.4s;
+}
+
+.area-nicks {
+    border-radius: 10px;
+}

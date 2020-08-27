@@ -1,0 +1,13 @@
+.container-fluid {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: seagreen;
+    font-family: 'Poppins', sans-serif;
+}
+
+.title {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 500;
+}
