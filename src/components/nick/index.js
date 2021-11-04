@@ -1,71 +1,83 @@
 import React from 'react';
 import imagemCopy from '../../assets/img/copy-icon.png';
+import words from '../../assets/words/words.json';
 
 //Função que cria e retorna strings de nicks
 function GerarNick()
 {
-  let tamanhoMaximo = 15 //Pode ser alterado o tamanho máximo dos nicks
+  let tamanhoMaximo = 16 //Pode ser alterado o tamanho máximo dos nicks
   
-  let characteresVogais = 'AEIOUaeiou -_/'
-  let characteresConsoantes = 'BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz'
-  let characteresEspeciais = ' -_/'
-  let numerais = '1234567890'
-  let characteres = ''
+  //let numerais = '1234567890'
 
-  let finalNick = '/'
+  let wordsSelected = []
 
-  let resultado = '' //O nick final
+  let result = '' //O nick final
 
-  let quantidadeCharacteres
+  let lengthNick = 0;
 
-  for (let i = 0; i < tamanhoMaximo; i++)
+  while (lengthNick <= tamanhoMaximo)
   {
-    //dicidir qual grupo de caracter tendo 40% de vogal e consoante, 10% especiais e numerais
-    let sortarValorCharactere = (Math.floor(Math.random() * 9))
-    if (sortarValorCharactere <= 3)
+    let sorterCharactereValue = (Math.round(Math.random() * 59))
+
+    if (sorterCharactereValue <= 9)
     {
-      characteres = characteresConsoantes
-    } else if (sortarValorCharactere <= 7)
+      wordsSelected = words.adjectives
+    } else if (sorterCharactereValue <= 19)
     {
-      characteres = characteresVogais
-    } else if (sortarValorCharactere <= 8)
+      wordsSelected = words.names
+    } else if (sorterCharactereValue <= 29)
     {
-      characteres = characteresEspeciais
+      wordsSelected = words.nouns
+    } else if (sorterCharactereValue <= 39)
+    {
+      wordsSelected = words.verbs
     } else
     {
-      characteres = numerais
-    }
-
-    quantidadeCharacteres = characteres.length
-
-    //charAt retorna o charactare que eseta em uma index expecifico da string
-    //floor é uma função que transforma números "quebrados" em inteiros
-    //O Math.random() em JS retorna números em um intervalo de 0 e 1
-    //a formula para random retornar números em um intervalo é "Math.random() * (max - min) + min"
-    //O caractere de '/' foi escolhido para ser o fim de um nick
-    let auxCharactere = characteres.charAt(Math.floor(Math.random() * (quantidadeCharacteres - 0) + 0))
-    
-    //Verificação para não ser gerado somente caracteres especiais
-    if(auxCharactere.length < 3 && (auxCharactere === '-' || auxCharactere === '_' || auxCharactere === ' '))
-    {
+      if(result.length >= 3) break
       continue
     }
 
-    if(auxCharactere !== finalNick)
-    {
-      resultado += auxCharactere
-    }
-    else
-    {
-      if (resultado.length < 3)
-      {
-        continue
+    //O Math.random() em JS retorna números em um intervalo de 0 e 1
+    //a formula para random retornar números em um intervalo é "Math.random() * (max - min) + min"
+    //O caractere de '/' foi escolhido para ser o fim de um nick
+
+    let repeatProcess = Math.round(Math.random() * 9)
+
+    for(let i = 0; i <= repeatProcess; i++) {
+      let qtdWords = Number(wordsSelected.length)
+
+      let wordPosition = Number(Math.round(Math.random() * qtdWords))
+
+      let word = String(wordsSelected[wordPosition]).replace(' ', '')
+
+      let endBreak = Number(Math.round(Math.random() * (word.length - 1) + 1))
+
+      let wordBreak = String(word.substring(0, endBreak))
+
+      let isUpFirst = Boolean(Math.round(Math.random()))
+
+      if(isUpFirst)
+        wordBreak = wordBreak.substring(0, 1).toUpperCase() + wordBreak.substring(1, wordBreak.length)
+
+      let maxLengthWord = wordBreak.length + result.length
+      let remainingWords = tamanhoMaximo - result.length
+
+      if(remainingWords <= 0) break
+
+      if(maxLengthWord >= tamanhoMaximo){
+        result += wordBreak.substring(0, remainingWords)
+        lengthNick = result.length
+        break
+      } else {
+        result += wordBreak
+        lengthNick = result.length
       }
-      break
     }
   }
+  
+  result = result.replace(' ', '_')
 
-  return resultado
+  return result
 }
 
 
