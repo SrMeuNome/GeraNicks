@@ -1,0 +1,12 @@
+h6 {
+    text-align: right;
+    padding: 10px 10px 10px 0px;
+    background-color: #343a40;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
